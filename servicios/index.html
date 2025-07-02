@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Individuales - Alear</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #DAA520;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .service-header {
+            background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
+            color: white;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .service-tagline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .service-body {
+            padding: 30px;
+        }
+        
+        .price-section {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .original-price {
+            font-size: 1.2rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-bottom: 5px;
+        }
+        
+        .sale-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #DAA520;
+        }
+        
+        .savings {
+            font-size: 0.9rem;
+            color: #4CAF50;
+            margin-top: 5px;
+        }
+        
+        .features {
+            margin-bottom: 25px;
+        }
+        
+        .features h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .features ul {
+            list-style: none;
+        }
+        
+        .features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+            color: #555;
+        }
+        
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #DAA520;
+            font-weight: 700;
+        }
+        
+        .cta-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
+            color: white;
+            text-align: center;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(218, 165, 32, 0.3);
+        }
+        
+        .secondary-button {
+            display: block;
+            width: 100%;
+            background: transparent;
+            color: #DAA520;
+            text-align: center;
+            padding: 15px 30px;
+            border: 2px solid #DAA520;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .secondary-button:hover {
+            background: #DAA520;
+            color: white;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ff4757;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 10;
+        }
+        
+        .bottom-cta {
+            background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .bottom-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .bottom-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .bundle-button {
+            display: inline-block;
+            background: white;
+            color: #DAA520;
+            padding: 20px 60px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .bundle-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">ALEAR</div>
+            <h1>Servicios Individuales</h1>
+            <p class="subtitle">Elige exactamente lo que tu negocio necesita ahora</p>
+        </div>
+        
+        <div class="services-grid">
+            <!-- Google Ads Service -->
+            <div class="service-card">
+                <div class="popular-badge">MÁS POPULAR</div>
+                <div class="service-header">
+                    <div class="service-icon">🎯</div>
+                    <h3 class="service-name">Google Ads Premium</h3>
+                    <p class="service-tagline">Clientes listos para comprar, ya</p>
+                </div>
+                <div class="service-body">
+                    <div class="price-section">
+                        <div class="original-price">$30,000 MXN</div>
+                        <div class="sale-price">$19,900</div>
+                        <div class="savings">Ahorras $10,100 (34%)</div>
+                    </div>
+                    <div class="features">
+                        <h4>Incluye:</h4>
+                        <ul>
+                            <li>Auditoría completa de competencia</li>
+                            <li>Setup de campañas Search y Display</li>
+                            <li>Landing pages de alta conversión</li>
+                            <li>Optimización diaria por 3 meses</li>
+                            <li>Remarketing incluido</li>
+                            <li>Reportes semanales detallados</li>
+                            <li>Llamadas quincenales de estrategia</li>
+                            <li>Garantía de ROI mínimo 3X</li>
+                        </ul>
+                    </div>
+                    <a href="/contrato-google-ads" class="cta-button">Contratar Ahora</a>
+                    <a href="https://wa.me/436765748509?text=Me%20interesa%20el%20servicio%20de%20Google%20Ads" class="secondary-button">Consultar por WhatsApp</a>
+                </div>
+            </div>
+            
+            <!-- WhatsApp Automation Service -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">📱</div>
+                    <h3 class="service-name">WhatsApp Business Pro</h3>
+                    <p class="service-tagline">Vende 24/7 en automático</p>
+                </div>
+                <div class="service-body">
+                    <div class="price-section">
+                        <div class="original-price">$15,000 MXN</div>
+                        <div class="sale-price">$9,900</div>
+                        <div class="savings">Ahorras $5,100 (34%)</div>
+                    </div>
+                    <div class="features">
+                        <h4>Incluye:</h4>
+                        <ul>
+                            <li>Catálogo digital completo</li>
+                            <li>Bot inteligente de pedidos</li>
+                            <li>Integración con punto de venta</li>
+                            <li>Mensajes automatizados</li>
+                            <li>Sistema de pagos en línea</li>
+                            <li>CRM básico incluido</li>
+                            <li>Capacitación a tu equipo</li>
+                            <li>30 días de soporte</li>
+                        </ul>
+                    </div>
+                    <a href="/contrato-whatsapp" class="cta-button">Contratar Ahora</a>
+                    <a href="https://wa.me/436765748509?text=Me%20interesa%20WhatsApp%20Business%20Pro" class="secondary-button">Consultar por WhatsApp</a>
+                </div>
+            </div>
+            
+            <!-- Branding Service -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🎨</div>
+                    <h3 class="service-name">Identidad de Marca</h3>
+                    <p class="service-tagline">Destaca entre la competencia</p>
+                </div>
+                <div class="service-body">
+                    <div class="price-section">
+                        <div class="original-price">$35,000 MXN</div>
+                        <div class="sale-price">$24,900</div>
+                        <div class="savings">Ahorras $10,100 (29%)</div>
+                    </div>
+                    <div class="features">
+                        <h4>Incluye:</h4>
+                        <ul>
+                            <li>Logo profesional (5 propuestas)</li>
+                            <li>Manual de marca completo</li>
+                            <li>Paleta de colores y tipografías</li>
+                            <li>Diseño de tarjetas de presentación</li>
+                            <li>Plantillas para redes sociales</li>
+                            <li>Diseño de menú o catálogo</li>
+                            <li>Mockups de aplicaciones</li>
+                            <li>Archivos editables</li>
+                        </ul>
+                    </div>
+                    <a href="/contrato-branding" class="cta-button">Contratar Ahora</a>
+                    <a href="https://wa.me/436765748509?text=Me%20interesa%20el%20servicio%20de%20Branding" class="secondary-button">Consultar por WhatsApp</a>
+                </div>
+            </div>
+            
+            <!-- Photography Service -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">📸</div>
+                    <h3 class="service-name">Fotografía Profesional</h3>
+                    <p class="service-tagline">Imágenes que venden</p>
+                </div>
+                <div class="service-body">
+                    <div class="price-section">
+                        <div class="original-price">$20,000 MXN</div>
+                        <div class="sale-price">$14,900</div>
+                        <div class="savings">Ahorras $5,100 (26%)</div>
+                    </div>
+                    <div class="features">
+                        <h4>Incluye:</h4>
+                        <ul>
+                            <li>50 fotografías profesionales</li>
+                            <li>Video promocional 60 segundos</li>
+                            <li>10 reels para redes sociales</li>
+                            <li>Edición profesional</li>
+                            <li>Fotografía de productos</li>
+                            <li>Fotografía de instalaciones</li>
+                            <li>Licencia comercial completa</li>
+                            <li>Entrega en alta resolución</li>
+                        </ul>
+                    </div>
+                    <a href="/contrato-fotografia" class="cta-button">Contratar Ahora</a>
+                    <a href="https://wa.me/436765748509?text=Me%20interesa%20el%20servicio%20de%20Fotografía" class="secondary-button">Consultar por WhatsApp</a>
+                </div>
+            </div>
+            
+            <!-- Website Service -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🌐</div>
+                    <h3 class="service-name">Página Web + SEO</h3>
+                    <p class="service-tagline">Tu negocio abierto 24/7</p>
+                </div>
+                <div class="service-body">
+                    <div class="price-section">
+                        <div class="original-price">$25,000 MXN</div>
+                        <div class="sale-price">$16,900</div>
+                        <div class="savings">Ahorras $8,100 (32%)</div>
+                    </div>
+                    <div class="features">
+                        <h4>Incluye:</h4>
+                        <ul>
+                            <li>Diseño web profesional</li>
+                            <li>Optimización SEO completa</li>
+                            <li>Google My Business</li>
+                            <li>Menú o catálogo digital</li>
+                            <li>Sistema de reservaciones</li>
+                            <li>Chat en vivo integrado</li>
+                            <li>Hosting por 1 año</li>
+                            <li>SSL y seguridad incluida</li>
+                        </ul>
+                    </div>
+                    <a href="/contrato-web" class="cta-button">Contratar Ahora</a>
+                    <a href="https://wa.me/436765748509?text=Me%20interesa%20el%20servicio%20de%20Página%20Web" class="secondary-button">Consultar por WhatsApp</a>
+                </div>
+            </div>
+            
+            <!-- Social Media Service -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">📲</div>
+                    <h3 class="service-name">Social Media Pro</h3>
+                    <p class="service-tagline">Presencia que genera ventas</p>
+                </div>
+                <div class="service-body">
+                    <div class="price-section">
+                        <div class="original-price">$10,000 MXN/mes</div>
+                        <div class="sale-price">$6,900</div>
+                        <div class="savings">Ahorras $3,100 (31%)</div>
+                    </div>
+                    <div class="features">
+                        <h4>Incluye:</h4>
+                        <ul>
+                            <li>Estrategia de contenido</li>
+                            <li>3 posts semanales</li>
+                            <li>Stories diarias</li>
+                            <li>Community management</li>
+                            <li>Diseño de publicaciones</li>
+                            <li>Calendario editorial</li>
+                            <li>Reportes mensuales</li>
+                            <li>Influencer outreach</li>
+                        </ul>
+                    </div>
+                    <a href="/contrato-social" class="cta-button">Contratar Ahora</a>
+                    <a href="https://wa.me/436765748509?text=Me%20interesa%20Social%20Media%20Pro" class="secondary-button">Consultar por WhatsApp</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bottom-cta">
+            <h2>¿Prefieres el Paquete Completo?</h2>
+            <p>Ahorra hasta 37% contratando todos los servicios juntos</p>
+            <a href="/contrato-completo" class="bundle-button">Ver Paquete Completo → $85,000</a>
+        </div>
+    </div>
+</body>
+</html>

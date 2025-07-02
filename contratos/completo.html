@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato Digital - Alear x Tacos Domingo al Carbón</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .contract-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contract-date {
+            font-size: 1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            padding: 60px 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            color: #DAA520;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .parties {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+        
+        .party {
+            padding: 20px;
+        }
+        
+        .party-title {
+            font-weight: 600;
+            color: #B8860B;
+            margin-bottom: 10px;
+        }
+        
+        .services-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        
+        .services-table th {
+            background: #DAA520;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .services-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .services-table tr:hover {
+            background: #f9f9f9;
+        }
+        
+        .price-cell {
+            text-align: right;
+            font-weight: 600;
+        }
+        
+        .total-row {
+            background: #f5f5f5;
+            font-weight: 700;
+        }
+        
+        .discount-row {
+            color: #d32f2f;
+        }
+        
+        .final-row {
+            background: #DAA520;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .terms {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .terms h3 {
+            color: #B8860B;
+            margin-bottom: 15px;
+        }
+        
+        .terms ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .terms li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .terms li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #DAA520;
+            font-weight: 700;
+        }
+        
+        .guarantee {
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.1) 0%, rgba(218, 165, 32, 0.05) 100%);
+            border: 2px solid #DAA520;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .guarantee h3 {
+            color: #B8860B;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .signature-section {
+            margin: 60px 0;
+            padding: 40px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+        
+        .signature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .signature-box {
+            text-align: center;
+        }
+        
+        .signature-pad {
+            width: 100%;
+            height: 150px;
+            border: 2px dashed #DAA520;
+            border-radius: 10px;
+            background: white;
+            cursor: crosshair;
+            position: relative;
+            margin: 20px 0;
+        }
+        
+        .signature-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .clear-btn {
+            background: transparent;
+            border: 1px solid #DAA520;
+            color: #DAA520;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .clear-btn:hover {
+            background: #DAA520;
+            color: white;
+        }
+        
+        .legal-notice {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        
+        .legal-notice strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .submit-section {
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
+            color: white;
+            border: none;
+            padding: 20px 60px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 30px rgba(218, 165, 32, 0.3);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(218, 165, 32, 0.5);
+        }
+        
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            gap: 10px;
+        }
+        
+        .checkbox-wrapper input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .payment-options {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .payment-option {
+            padding: 20px;
+            background: white;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-option:hover {
+            border-color: #DAA520;
+            transform: translateY(-2px);
+        }
+        
+        .payment-option.selected {
+            border-color: #DAA520;
+            background: rgba(218, 165, 32, 0.1);
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .contract-container {
+                box-shadow: none;
+            }
+            .clear-btn, .submit-btn {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .parties, .signature-grid, .payment-grid {
+                grid-template-columns: 1fr;
+            }
+            .content {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contract-container">
+        <div class="header">
+            <div class="logo">ALEAR</div>
+            <h1>CONTRATO DE SERVICIOS DE MARKETING DIGITAL</h1>
+            <div class="contract-date">Fecha: <span id="current-date"></span></div>
+        </div>
+        
+        <div class="content">
+            <div class="parties">
+                <div class="party">
+                    <div class="party-title">PRESTADOR DE SERVICIOS</div>
+                    <strong>ALEAR MARKETING DIGITAL</strong><br>
+                    RFC: ALE240702XXX<br>
+                    San Pedro Garza García, NL<br>
+                    Tel: +52 81 1743 7991<br>
+                    Email: contratos@alear.mx
+                </div>
+                <div class="party">
+                    <div class="party-title">CLIENTE</div>
+                    <strong>TACOS DOMINGO AL CARBÓN</strong><br>
+                    Representante: <input type="text" id="rep-name" placeholder="Nombre completo" style="width: 100%; padding: 5px; margin: 5px 0;"><br>
+                    RFC: <input type="text" id="rfc" placeholder="RFC" style="width: 100%; padding: 5px; margin: 5px 0;"><br>
+                    Tel: <input type="tel" id="phone" placeholder="Teléfono" style="width: 100%; padding: 5px; margin: 5px 0;">
+                </div>
+            </div>
+            
+            <section class="section">
+                <h2>1. SERVICIOS CONTRATADOS</h2>
+                <table class="services-table">
+                    <thead>
+                        <tr>
+                            <th>Servicio</th>
+                            <th>Descripción</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Identidad de Marca Premium</strong></td>
+                            <td>Logo profesional, manual de marca, aplicaciones</td>
+                            <td class="price-cell">$35,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ecosistema Digital</strong></td>
+                            <td>Página web, Google My Business, menú digital</td>
+                            <td class="price-cell">$25,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fotografía y Video</strong></td>
+                            <td>50 fotos profesionales, video 60s, 10 reels</td>
+                            <td class="price-cell">$20,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Google Ads (3 meses)</strong></td>
+                            <td>Setup, optimización diaria, reportes</td>
+                            <td class="price-cell">$30,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>WhatsApp Business</strong></td>
+                            <td>Catálogo digital, bot 24/7, pagos integrados</td>
+                            <td class="price-cell">$15,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Social Media (3 meses)</strong></td>
+                            <td>Estrategia, contenido, community management</td>
+                            <td class="price-cell">$10,000</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td colspan="2"><strong>SUBTOTAL</strong></td>
+                            <td class="price-cell">$135,000</td>
+                        </tr>
+                        <tr class="discount-row">
+                            <td colspan="2"><strong>DESCUENTO ESPECIAL APERTURA (37%)</strong></td>
+                            <td class="price-cell">-$50,000</td>
+                        </tr>
+                        <tr class="final-row">
+                            <td colspan="2"><strong>INVERSIÓN TOTAL</strong></td>
+                            <td class="price-cell"><strong>$85,000 MXN</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section class="payment-options">
+                <h3>Forma de Pago</h3>
+                <div class="payment-grid">
+                    <div class="payment-option" onclick="selectPayment(this, 'contado')">
+                        <strong>Pago de Contado</strong><br>
+                        $85,000 MXN<br>
+                        <small>Ahorra tiempo y comisiones</small>
+                    </div>
+                    <div class="payment-option selected" onclick="selectPayment(this, '2pagos')">
+                        <strong>2 Pagos</strong><br>
+                        $42,500 MXN c/u<br>
+                        <small>50% inicial, 50% a 30 días</small>
+                    </div>
+                    <div class="payment-option" onclick="selectPayment(this, '3pagos')">
+                        <strong>3 Pagos</strong><br>
+                        $28,333 MXN c/u<br>
+                        <small>Mensualidades sin intereses</small>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="terms">
+                <h3>Términos y Condiciones</h3>
+                <ul>
+                    <li>Tiempo de entrega: 30 días hábiles a partir de la firma</li>
+                    <li>Incluye 3 meses de soporte y optimización sin costo</li>
+                    <li>ROI garantizado o trabajamos gratis hasta conseguirlo</li>
+                    <li>Presupuesto de Google Ads NO incluido (se paga directo a Google)</li>
+                    <li>El cliente proporcionará accesos e información necesaria</li>
+                    <li>Reuniones semanales de seguimiento vía Zoom</li>
+                    <li>Reportes de resultados cada 7 días</li>
+                    <li>Propiedad intelectual compartida de todos los materiales</li>
+                </ul>
+            </section>
+            
+            <div class="guarantee">
+                <h3>🛡️ GARANTÍA ALEAR</h3>
+                <p><strong>Si no duplicamos su inversión en 90 días, continuamos trabajando SIN COSTO hasta lograrlo.</strong></p>
+                <p style="font-size: 0.9rem; margin-top: 10px;">*Sujeto a implementación completa de estrategia y presupuesto mínimo en ads.</p>
+            </div>
+            
+            <div class="legal-notice">
+                <strong>📋 VALIDEZ LEGAL DE FIRMA ELECTRÓNICA</strong>
+                Este contrato firmado digitalmente tiene la misma validez legal que un documento físico según la Ley de Firma Electrónica Avanzada de México.
+                Su firma digital queda registrada con fecha, hora y dirección IP para máxima seguridad jurídica.
+            </div>
+            
+            <section class="signature-section">
+                <h3 style="text-align: center; margin-bottom: 10px;">FIRMAS</h3>
+                <p style="text-align: center; color: #666; margin-bottom: 30px;">
+                    Al firmar digitalmente, ambas partes aceptan los términos y condiciones establecidos
+                </p>
+                
+                <div class="signature-grid">
+                    <div class="signature-box">
+                        <div class="signature-label">FIRMA DEL CLIENTE</div>
+                        <canvas id="client-signature" class="signature-pad"></canvas>
+                        <button class="clear-btn" onclick="clearSignature('client-signature')">Limpiar Firma</button>
+                    </div>
+                    <div class="signature-box">
+                        <div class="signature-label">FIRMA ALEAR</div>
+                        <canvas id="alear-signature" class="signature-pad"></canvas>
+                        <div style="margin-top: 10px;">Diego Cárdenas - Director General</div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="accept-terms">
+                <label for="accept-terms">
+                    He leído y acepto todos los términos y condiciones de este contrato
+                </label>
+            </div>
+            
+            <div class="submit-section">
+                <button class="submit-btn" id="submit-btn" disabled onclick="submitContract()">
+                    FIRMAR Y PROCESAR CONTRATO
+                </button>
+                <p style="margin-top: 20px; color: #666;">
+                    Al hacer clic, se generará una copia PDF para ambas partes
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Set current date
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('es-MX', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        // Canvas signature functionality
+        function initSignaturePad(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            let isDrawing = false;
+            
+            // Set canvas size
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            
+            ctx.strokeStyle = '#DAA520';
+            ctx.lineWidth = 2;
+            ctx.lineCap = 'round';
+            
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', stopDrawing);
+            canvas.addEventListener('mouseout', stopDrawing);
+            
+            // Touch events
+            canvas.addEventListener('touchstart', handleTouch);
+            canvas.addEventListener('touchmove', handleTouch);
+            canvas.addEventListener('touchend', stopDrawing);
+            
+            function startDrawing(e) {
+                isDrawing = true;
+                const rect = canvas.getBoundingClientRect();
+                ctx.beginPath();
+                ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+                checkFormValidity();
+            }
+            
+            function draw(e) {
+                if (!isDrawing) return;
+                const rect = canvas.getBoundingClientRect();
+                ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+                ctx.stroke();
+            }
+            
+            function stopDrawing() {
+                isDrawing = false;
+            }
+            
+            function handleTouch(e) {
+                e.preventDefault();
+                const touch = e.touches[0];
+                const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' : e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
+                    clientX: touch.clientX,
+                    clientY: touch.clientY
+                });
+                canvas.dispatchEvent(mouseEvent);
+            }
+        }
+        
+        // Initialize signature pads
+        initSignaturePad('client-signature');
+        initSignaturePad('alear-signature');
+        
+        // Pre-sign Alear signature
+        setTimeout(() => {
+            const canvas = document.getElementById('alear-signature');
+            const ctx = canvas.getContext('2d');
+            ctx.font = '30px cursive';
+            ctx.fillStyle = '#DAA520';
+            ctx.fillText('Diego Cárdenas', 20, 80);
+        }, 500);
+        
+        function clearSignature(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            checkFormValidity();
+        }
+        
+        function selectPayment(element, type) {
+            document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+        
+        // Check form validity
+        function checkFormValidity() {
+            const repName = document.getElementById('rep-name').value;
+            const rfc = document.getElementById('rfc').value;
+            const phone = document.getElementById('phone').value;
+            const termsAccepted = document.getElementById('accept-terms').checked;
+            const clientCanvas = document.getElementById('client-signature');
+            const ctx = clientCanvas.getContext('2d');
+            const hasSignature = ctx.getImageData(0, 0, clientCanvas.width, clientCanvas.height).data.some(channel => channel !== 0);
+            
+            const isValid = repName && rfc && phone && termsAccepted && hasSignature;
+            document.getElementById('submit-btn').disabled = !isValid;
+        }
+        
+        // Add event listeners
+        document.getElementById('rep-name').addEventListener('input', checkFormValidity);
+        document.getElementById('rfc').addEventListener('input', checkFormValidity);
+        document.getElementById('phone').addEventListener('input', checkFormValidity);
+        document.getElementById('accept-terms').addEventListener('change', checkFormValidity);
+        
+        function submitContract() {
+            // Capture form data
+            const contractData = {
+                clientName: document.getElementById('rep-name').value,
+                rfc: document.getElementById('rfc').value,
+                phone: document.getElementById('phone').value,
+                date: new Date().toISOString(),
+                ip: 'Cliente IP registrada',
+                signature: document.getElementById('client-signature').toDataURL(),
+                amount: 85000,
+                services: 'Paquete Completo Lanzamiento'
+            };
+            
+            // Show success message
+            alert('¡Contrato firmado exitosamente! \n\nRecibirá una copia por email en los próximos minutos.\n\nBienvenido a la familia Alear.');
+            
+            // Here you would send data to your backend
+            console.log('Contract data:', contractData);
+            
+            // Redirect to thank you page or payment
+            setTimeout(() => {
+                window.location.href = '/gracias?contract=success';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
