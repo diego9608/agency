@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato WhatsApp Business Pro - Alear</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .contract-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        
+        .content {
+            padding: 60px 40px;
+        }
+        
+        .urgent-notice {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .urgent-notice strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .service-details {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .deliverables {
+            margin: 30px 0;
+        }
+        
+        .deliverables h3 {
+            color: #B8860B;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .deliverables ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .deliverables li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .deliverables li:before {
+            content: "📱";
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        .pricing-box {
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.1) 0%, rgba(218, 165, 32, 0.05) 100%);
+            border: 2px solid #DAA520;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .price-strike {
+            font-size: 1.2rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+        
+        .price-final {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #DAA520;
+            margin: 10px 0;
+        }
+        
+        .price-savings {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+        
+        .guarantee-box {
+            background: #e8f5e9;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .guarantee-box h3 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+        
+        .terms {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .signature-section {
+            margin: 60px 0;
+            padding: 40px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+        
+        .signature-pad {
+            width: 100%;
+            height: 150px;
+            border: 2px dashed #DAA520;
+            border-radius: 10px;
+            background: white;
+            cursor: crosshair;
+            margin: 20px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #B8860B;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .legal-notice {
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+            color: #1565c0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
+            color: white;
+            border: none;
+            padding: 20px 60px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            width: 100%;
+            margin-top: 30px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(218, 165, 32, 0.5);
+        }
+        
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .back-link a {
+            color: #DAA520;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contract-container">
+        <div class="header">
+            <div class="service-icon">📱</div>
+            <div class="logo">ALEAR</div>
+            <h1>CONTRATO DE SERVICIO - WHATSAPP BUSINESS PRO</h1>
+        </div>
+        
+        <div class="content">
+            <div class="urgent-notice">
+                <strong>💚 VENDE 24/7 EN AUTOMÁTICO</strong>
+                Nunca más pierdas una venta por no contestar a tiempo
+            </div>
+            
+            <div class="service-details">
+                <h2 style="color: #B8860B; margin-bottom: 20px;">WhatsApp Business Pro para su Negocio</h2>
+                <p style="font-size: 1.1rem;">
+                    Sistema completo de automatización que convierte WhatsApp en su vendedor estrella 
+                    las 24 horas del día, 7 días a la semana.
+                </p>
+            </div>
+            
+            <div class="deliverables">
+                <h3>¿Qué incluye este servicio?</h3>
+                <ul>
+                    <li>Configuración completa de WhatsApp Business API</li>
+                    <li>Catálogo digital interactivo con todos sus productos</li>
+                    <li>Bot inteligente que entiende y responde preguntas</li>
+                    <li>Sistema de pedidos automático con carrito de compras</li>
+                    <li>Integración con métodos de pago (tarjeta, transferencia)</li>
+                    <li>Mensajes automatizados personalizados</li>
+                    <li>Sistema de confirmación y seguimiento de pedidos</li>
+                    <li>Base de datos de clientes (CRM básico)</li>
+                    <li>Respuestas rápidas pre-configuradas</li>
+                    <li>Capacitación completa a su equipo (2 horas)</li>
+                    <li>30 días de soporte técnico incluido</li>
+                    <li>Actualizaciones mensuales del catálogo</li>
+                </ul>
+            </div>
+            
+            <div class="pricing-box">
+                <div class="price-strike">Precio Regular: $15,000 MXN</div>
+                <div class="price-final">$9,900 MXN</div>
+                <div class="price-savings">Ahorras $5,100 (34% de descuento)</div>
+                <p style="margin-top: 20px; font-size: 0.9rem;">
+                    * Pago único por implementación<br>
+                    * Sin mensualidades ocultas
+                </p>
+            </div>
+            
+            <div class="guarantee-box">
+                <h3>✅ GARANTÍA DE SATISFACCIÓN</h3>
+                <p><strong>100% funcional o le devolvemos su dinero</strong></p>
+                <p style="margin-top: 10px;">
+                    Si el sistema no funciona perfectamente en 30 días,
+                    le regresamos el 100% de su inversión.
+                </p>
+            </div>
+            
+            <div class="terms">
+                <h3 style="color: #B8860B; margin-bottom: 15px;">Términos del Servicio</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 5px 0;">⏰ Implementación: 5-7 días hábiles</li>
+                    <li style="padding: 5px 0;">💳 Forma de pago: 50% inicial, 50% al entregar</li>
+                    <li style="padding: 5px 0;">📱 Requisitos: Línea WhatsApp Business dedicada</li>
+                    <li style="padding: 5px 0;">🔧 Mantenimiento: Opcional después de 30 días</li>
+                    <li style="padding: 5px 0;">📊 Capacitación: Incluida para hasta 5 personas</li>
+                </ul>
+            </div>
+            
+            <div class="legal-notice">
+                <strong>💡 FIRMA DIGITAL SEGURA</strong>
+                <p style="margin-top: 10px;">
+                    Este contrato digital cumple con la NOM-151-SCFI-2016.
+                    Su firma electrónica tiene validez legal total y queda registrada
+                    con fecha, hora e IP para máxima seguridad.
+                </p>
+            </div>
+            
+            <div class="signature-section">
+                <h3 style="text-align: center; color: #B8860B; margin-bottom: 30px;">
+                    INFORMACIÓN Y FIRMA DEL CLIENTE
+                </h3>
+                
+                <div class="form-group">
+                    <label>Nombre del Negocio</label>
+                    <input type="text" id="business-name" placeholder="Nombre de su negocio" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Nombre del Representante Legal</label>
+                    <input type="text" id="rep-name" placeholder="Nombre completo" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="correo@ejemplo.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>WhatsApp (donde se implementará)</label>
+                    <input type="tel" id="phone" placeholder="+52 81 1234 5678" required>
+                </div>
+                
+                <div style="margin: 30px 0;">
+                    <label style="font-weight: 600; color: #B8860B; display: block; margin-bottom: 10px;">
+                        Firma Digital del Cliente
+                    </label>
+                    <canvas id="signature-pad" class="signature-pad"></canvas>
+                    <button onclick="clearSignature()" style="margin-top: 10px; background: transparent; border: 1px solid #DAA520; color: #DAA520; padding: 8px 20px; border-radius: 5px; cursor: pointer;">
+                        Limpiar Firma
+                    </button>
+                </div>
+                
+                <div style="margin: 20px 0;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="checkbox" id="accept-terms" style="width: 20px; height: 20px;">
+                        <span>Acepto los términos y condiciones. Entiendo que este es un compromiso legal.</span>
+                    </label>
+                </div>
+                
+                <button class="submit-btn" id="submit-btn" disabled onclick="submitContract()">
+                    FIRMAR Y ACTIVAR SERVICIO
+                </button>
+            </div>
+            
+            <div class="back-link">
+                <a href="/servicios">← Ver otros servicios</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Canvas signature functionality
+        const canvas = document.getElementById('signature-pad');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+        
+        // Set canvas size
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        
+        ctx.strokeStyle = '#DAA520';
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+        
+        // Touch events
+        canvas.addEventListener('touchstart', handleTouch);
+        canvas.addEventListener('touchmove', handleTouch);
+        canvas.addEventListener('touchend', stopDrawing);
+        
+        function startDrawing(e) {
+            isDrawing = true;
+            const rect = canvas.getBoundingClientRect();
+            ctx.beginPath();
+            ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+            checkFormValidity();
+        }
+        
+        function draw(e) {
+            if (!isDrawing) return;
+            const rect = canvas.getBoundingClientRect();
+            ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+            ctx.stroke();
+        }
+        
+        function stopDrawing() {
+            isDrawing = false;
+        }
+        
+        function handleTouch(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' : e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            canvas.dispatchEvent(mouseEvent);
+        }
+        
+        function clearSignature() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            checkFormValidity();
+        }
+        
+        // Form validation
+        function checkFormValidity() {
+            const businessName = document.getElementById('business-name').value;
+            const repName = document.getElementById('rep-name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const termsAccepted = document.getElementById('accept-terms').checked;
+            const hasSignature = ctx.getImageData(0, 0, canvas.width, canvas.height).data.some(channel => channel !== 0);
+            
+            const isValid = businessName && repName && email && phone && termsAccepted && hasSignature;
+            document.getElementById('submit-btn').disabled = !isValid;
+        }
+        
+        // Add event listeners
+        document.getElementById('business-name').addEventListener('input', checkFormValidity);
+        document.getElementById('rep-name').addEventListener('input', checkFormValidity);
+        document.getElementById('email').addEventListener('input', checkFormValidity);
+        document.getElementById('phone').addEventListener('input', checkFormValidity);
+        document.getElementById('accept-terms').addEventListener('change', checkFormValidity);
+        
+        function submitContract() {
+            const contractData = {
+                service: 'WhatsApp Business Pro',
+                businessName: document.getElementById('business-name').value,
+                clientName: document.getElementById('rep-name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                date: new Date().toISOString(),
+                signature: canvas.toDataURL(),
+                amount: 9900
+            };
+            
+            alert('¡Excelente decisión! \n\nSu WhatsApp Business Pro se configurará en los próximos 5-7 días.\n\nRecibirá un email con los siguientes pasos y la información de pago.');
+            
+            console.log('Contract data:', contractData);
+            
+            // Redirect to payment with Stripe link
+            setTimeout(() => {
+                window.location.href = 'https://buy.stripe.com/aFa6oGeFVaWUf492sb';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

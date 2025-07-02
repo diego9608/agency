@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato Social Media Pro - Alear</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0A0A0A;
+            color: #E8E8E8;
+            line-height: 1.6;
+        }
+        
+        .contract-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #1A1A1A;
+            box-shadow: 0 0 50px rgba(218, 165, 32, 0.1);
+            border: 1px solid rgba(218, 165, 32, 0.1);
+        }
+        
+        .header {
+            background: #000000;
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid rgba(218, 165, 32, 0.2);
+        }
+        
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 8px;
+            color: #DAA520;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+        }
+        
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L30 60 L45 40 L50 10 L55 40 L70 60 Z" fill="%23DAA520" opacity="0.8"/></svg>') center/contain no-repeat;
+        }
+        
+        h1 {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #999;
+        }
+        
+        .content {
+            padding: 60px 40px;
+            background: #1A1A1A;
+        }
+        
+        .urgent-notice {
+            background: rgba(79, 195, 247, 0.1);
+            border: 2px solid #4fc3f7;
+            color: #4fc3f7;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .urgent-notice strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #E8E8E8;
+        }
+        
+        .service-details {
+            background: #0F0F0F;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 1px solid rgba(218, 165, 32, 0.1);
+        }
+        
+        .deliverables {
+            margin: 30px 0;
+        }
+        
+        .deliverables h3 {
+            color: #DAA520;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .deliverables ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .deliverables li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px solid #333;
+            color: #E8E8E8;
+        }
+        
+        .deliverables li:before {
+            content: "📲";
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        .pricing-box {
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.15) 0%, rgba(218, 165, 32, 0.05) 100%);
+            border: 2px solid #DAA520;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .price-strike {
+            font-size: 1.2rem;
+            color: #666;
+            text-decoration: line-through;
+        }
+        
+        .price-final {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #DAA520;
+            margin: 10px 0;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .price-savings {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+        
+        .price-note {
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: 10px;
+        }
+        
+        .guarantee-box {
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .guarantee-box h3 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        
+        .terms {
+            background: #0F0F0F;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 1px solid rgba(218, 165, 32, 0.1);
+        }
+        
+        .package-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .package-option {
+            background: #0F0F0F;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .package-option:hover {
+            border-color: #DAA520;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(218, 165, 32, 0.2);
+        }
+        
+        .package-option.selected {
+            border-color: #DAA520;
+            background: rgba(218, 165, 32, 0.05);
+        }
+        
+        .package-option h4 {
+            color: #DAA520;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .package-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #E8E8E8;
+            margin: 10px 0;
+        }
+        
+        .signature-section {
+            margin: 60px 0;
+            padding: 40px;
+            background: #0F0F0F;
+            border-radius: 10px;
+            border: 1px solid rgba(218, 165, 32, 0.1);
+        }
+        
+        .signature-pad {
+            width: 100%;
+            height: 150px;
+            border: 2px dashed #DAA520;
+            border-radius: 10px;
+            background: #1A1A1A;
+            cursor: crosshair;
+            margin: 20px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #DAA520;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #333;
+            background: #1A1A1A;
+            color: #E8E8E8;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #DAA520;
+        }
+        
+        .legal-notice {
+            background: rgba(218, 165, 32, 0.1);
+            border: 1px solid rgba(218, 165, 32, 0.3);
+            color: #DAA520;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        
+        .legal-notice strong {
+            color: #E8E8E8;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
+            color: white;
+            border: none;
+            padding: 20px 60px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            width: 100%;
+            margin-top: 30px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(218, 165, 32, 0.5);
+        }
+        
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .back-link a {
+            color: #DAA520;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link a:hover {
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 40px 20px;
+            }
+            
+            .package-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contract-container">
+        <div class="header">
+            <div class="service-icon">📲</div>
+            <div class="logo">ALEAR</div>
+            <h1>CONTRATO DE SERVICIO - SOCIAL MEDIA PRO</h1>
+        </div>
+        
+        <div class="content">
+            <div class="urgent-notice">
+                <strong>📱 PRESENCIA DIGITAL QUE GENERA VENTAS</strong>
+                80% de sus clientes potenciales están en redes sociales ahora mismo
+            </div>
+            
+            <div class="service-details">
+                <h2 style="color: #DAA520; margin-bottom: 20px; font-family: 'Playfair Display', serif;">Gestión Profesional de Redes Sociales</h2>
+                <p style="font-size: 1.1rem; color: #E8E8E8;">
+                    Manejo experto de sus redes sociales con contenido estratégico que convierte 
+                    seguidores en clientes y genera interacción real con su audiencia.
+                </p>
+            </div>
+            
+            <div class="deliverables">
+                <h3>¿Qué incluye este servicio mensual?</h3>
+                <ul>
+                    <li>Estrategia de contenido personalizada mensual</li>
+                    <li>3 publicaciones semanales (12 al mes)</li>
+                    <li>Stories diarias (mínimo 1 por día)</li>
+                    <li>Diseño profesional de todas las publicaciones</li>
+                    <li>Copywriting persuasivo y llamadas a la acción</li>
+                    <li>Community management (respuesta a comentarios)</li>
+                    <li>Gestión de mensajes directos en horario laboral</li>
+                    <li>Calendario editorial mensual aprobado</li>
+                    <li>Hashtags estratégicos investigados</li>
+                    <li>Colaboraciones con micro-influencers locales</li>
+                    <li>Concursos y dinámicas mensuales</li>
+                    <li>Reportes de métricas semanales</li>
+                    <li>Junta mensual de resultados (30 min)</li>
+                    <li>Gestión de Facebook e Instagram</li>
+                    <li>Creación de Reels/Videos cortos (4 al mes)</li>
+                </ul>
+            </div>
+            
+            <div class="pricing-box">
+                <div class="price-strike">Precio Regular: $10,000 MXN/mes</div>
+                <div class="price-final">$6,900 MXN</div>
+                <div class="price-savings">Ahorras $3,100 mensuales (31% de descuento)</div>
+                <p class="price-note">
+                    * Precio por mes con contrato mínimo de 3 meses<br>
+                    * Sin costo de setup el primer mes
+                </p>
+            </div>
+            
+            <div class="package-options">
+                <div class="package-option selected" onclick="selectPackage(this, 3, 20700)">
+                    <h4>3 MESES</h4>
+                    <div class="package-price">$20,700</div>
+                    <small>$6,900/mes</small>
+                    <p style="color: #4CAF50; font-size: 0.8rem; margin-top: 5px;">Recomendado</p>
+                </div>
+                <div class="package-option" onclick="selectPackage(this, 6, 38940)">
+                    <h4>6 MESES</h4>
+                    <div class="package-price">$38,940</div>
+                    <small>$6,490/mes</small>
+                    <p style="color: #4CAF50; font-size: 0.8rem; margin-top: 5px;">Ahorra $2,460</p>
+                </div>
+                <div class="package-option" onclick="selectPackage(this, 12, 71880)">
+                    <h4>12 MESES</h4>
+                    <div class="package-price">$71,880</div>
+                    <small>$5,990/mes</small>
+                    <p style="color: #4CAF50; font-size: 0.8rem; margin-top: 5px;">Ahorra $10,920</p>
+                </div>
+            </div>
+            
+            <div class="guarantee-box">
+                <h3>📈 GARANTÍA DE CRECIMIENTO</h3>
+                <p><strong>Duplicamos sus seguidores en 90 días o trabajamos gratis</strong></p>
+                <p style="margin-top: 10px;">
+                    Si no duplicamos su número de seguidores activos en los primeros 3 meses,
+                    el cuarto mes es completamente gratis.
+                </p>
+            </div>
+            
+            <div class="terms">
+                <h3 style="color: #DAA520; margin-bottom: 15px; font-family: 'Playfair Display', serif;">Términos del Servicio</h3>
+                <ul style="list-style: none; padding: 0; color: #E8E8E8;">
+                    <li style="padding: 5px 0;">📅 Inicio: 48 horas después del pago</li>
+                    <li style="padding: 5px 0;">💳 Forma de pago: 100% anticipado por el período elegido</li>
+                    <li style="padding: 5px 0;">🔄 Renovación: Automática al finalizar el período</li>
+                    <li style="padding: 5px 0;">❌ Cancelación: 15 días antes del siguiente período</li>
+                    <li style="padding: 5px 0;">📱 Accesos: Cliente proporciona accesos a redes</li>
+                </ul>
+            </div>
+            
+            <div class="legal-notice">
+                <strong>💡 FIRMA DIGITAL CON VALIDEZ LEGAL</strong>
+                <p style="margin-top: 10px;">
+                    Este contrato electrónico cumple con la NOM-151-SCFI-2016.
+                    Su firma digital tiene la misma validez que una firma manuscrita
+                    y queda registrada para seguridad de ambas partes.
+                </p>
+            </div>
+            
+            <div class="signature-section">
+                <h3 style="text-align: center; color: #DAA520; margin-bottom: 30px; font-family: 'Playfair Display', serif; font-size: 1.8rem;">
+                    INFORMACIÓN Y FIRMA DEL CLIENTE
+                </h3>
+                
+                <div class="form-group">
+                    <label>Nombre del Negocio</label>
+                    <input type="text" id="business-name" placeholder="Nombre de su negocio" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Redes Sociales Actuales (Facebook/Instagram)</label>
+                    <input type="text" id="social-accounts" placeholder="@sunegocio" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Nombre del Representante Legal</label>
+                    <input type="text" id="rep-name" placeholder="Nombre completo" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="correo@ejemplo.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>WhatsApp</label>
+                    <input type="tel" id="phone" placeholder="+52 81 1234 5678" required>
+                </div>
+                
+                <div style="margin: 30px 0;">
+                    <label style="font-weight: 600; color: #B8860B; display: block; margin-bottom: 10px;">
+                        Firma Digital del Cliente
+                    </label>
+                    <canvas id="signature-pad" class="signature-pad"></canvas>
+                    <button onclick="clearSignature()" style="margin-top: 10px; background: #1A1A1A; border: 1px solid #DAA520; color: #DAA520; padding: 8px 20px; border-radius: 5px; cursor: pointer;">
+                        Limpiar Firma
+                    </button>
+                </div>
+                
+                <div style="margin: 20px 0;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="checkbox" id="accept-terms" style="width: 20px; height: 20px;">
+                        <span>Acepto los términos y condiciones. Autorizo el manejo profesional de mis redes sociales.</span>
+                    </label>
+                </div>
+                
+                <button class="submit-btn" id="submit-btn" disabled onclick="submitContract()">
+                    FIRMAR Y ACTIVAR SERVICIO
+                </button>
+            </div>
+            
+            <div class="back-link">
+                <a href="/servicios">← Ver otros servicios</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let selectedMonths = 3;
+        let selectedAmount = 20700;
+        
+        function selectPackage(element, months, amount) {
+            // Remove selected class from all options
+            document.querySelectorAll('.package-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            
+            // Update selected values
+            selectedMonths = months;
+            selectedAmount = amount;
+        }
+        
+        // Canvas signature functionality
+        const canvas = document.getElementById('signature-pad');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+        
+        // Set canvas size
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        
+        ctx.strokeStyle = '#DAA520';
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+        
+        // Touch events
+        canvas.addEventListener('touchstart', handleTouch);
+        canvas.addEventListener('touchmove', handleTouch);
+        canvas.addEventListener('touchend', stopDrawing);
+        
+        function startDrawing(e) {
+            isDrawing = true;
+            const rect = canvas.getBoundingClientRect();
+            ctx.beginPath();
+            ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+            checkFormValidity();
+        }
+        
+        function draw(e) {
+            if (!isDrawing) return;
+            const rect = canvas.getBoundingClientRect();
+            ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+            ctx.stroke();
+        }
+        
+        function stopDrawing() {
+            isDrawing = false;
+        }
+        
+        function handleTouch(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' : e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            canvas.dispatchEvent(mouseEvent);
+        }
+        
+        function clearSignature() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            checkFormValidity();
+        }
+        
+        // Form validation
+        function checkFormValidity() {
+            const businessName = document.getElementById('business-name').value;
+            const socialAccounts = document.getElementById('social-accounts').value;
+            const repName = document.getElementById('rep-name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const termsAccepted = document.getElementById('accept-terms').checked;
+            const hasSignature = ctx.getImageData(0, 0, canvas.width, canvas.height).data.some(channel => channel !== 0);
+            
+            const isValid = businessName && socialAccounts && repName && email && phone && termsAccepted && hasSignature;
+            document.getElementById('submit-btn').disabled = !isValid;
+        }
+        
+        // Add event listeners
+        document.getElementById('business-name').addEventListener('input', checkFormValidity);
+        document.getElementById('social-accounts').addEventListener('input', checkFormValidity);
+        document.getElementById('rep-name').addEventListener('input', checkFormValidity);
+        document.getElementById('email').addEventListener('input', checkFormValidity);
+        document.getElementById('phone').addEventListener('input', checkFormValidity);
+        document.getElementById('accept-terms').addEventListener('change', checkFormValidity);
+        
+        function submitContract() {
+            const contractData = {
+                service: 'Social Media Pro',
+                businessName: document.getElementById('business-name').value,
+                socialAccounts: document.getElementById('social-accounts').value,
+                clientName: document.getElementById('rep-name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                date: new Date().toISOString(),
+                signature: canvas.toDataURL(),
+                months: selectedMonths,
+                amount: selectedAmount
+            };
+            
+            alert(`¡Excelente decisión! \n\nSu servicio Social Media Pro por ${selectedMonths} meses está confirmado.\n\nComenzaremos a trabajar en sus redes en las próximas 48 horas.`);
+            
+            console.log('Contract data:', contractData);
+            
+            // Redirect to payment with Stripe link
+            // Note: You may want to pass the amount parameter to handle different pricing
+            setTimeout(() => {
+                window.location.href = 'https://buy.stripe.com/5kQ5kC55l9SQ8FL9UD';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
