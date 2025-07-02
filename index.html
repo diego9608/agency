@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alear - Marketing Digital Especializado por Industria</title>
+    <meta name="description" content="Alear: Estrategias de marketing digital personalizadas para cada industria. ROI garantizado para restaurantes, consultorios, hoteles y más.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --gold: #DAA520;
+            --gold-dark: #B8860B;
+            --cream: #F5DEB3;
+            --black: #000000;
+            --dark: #0A0A0A;
+            --gray: #1A1A1A;
+            --text: #E5E5E5;
+            --text-muted: #999999;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--black);
+            color: var(--text);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(218, 165, 32, 0.1);
+        }
+        
+        nav.scrolled {
+            padding: 15px 0;
+            background: rgba(0, 0, 0, 0.98);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--gold);
+            text-decoration: none;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 3px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--black);
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(218, 165, 32, 0.3);
+            color: var(--black) !important;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 120px 40px 80px;
+            background: radial-gradient(circle at center, rgba(218, 165, 32, 0.03) 0%, transparent 70%);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%23000" width="1920" height="1080"/><circle cx="960" cy="540" r="300" fill="%23DAA520" opacity="0.02"/></svg>') center/cover;
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: -2px;
+        }
+        
+        .gold-text {
+            color: var(--gold);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--cream);
+            margin-bottom: 50px;
+            font-weight: 300;
+            font-style: italic;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        /* Industry Selector */
+        .industry-selector {
+            padding: 100px 40px;
+            background: var(--gray);
+            position: relative;
+        }
+        
+        .industry-selector::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+        
+        h2 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--cream);
+            font-weight: 300;
+        }
+        
+        /* Industry Grid */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .industry-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(218, 165, 32, 0.2);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .industry-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--gold), transparent, var(--gold));
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .industry-card:hover {
+            transform: translateY(-10px);
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.08) 0%, rgba(218, 165, 32, 0.02) 100%);
+        }
+        
+        .industry-card:hover::before {
+            opacity: 0.3;
+        }
+        
+        .industry-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .industry-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--cream);
+        }
+        
+        .industry-description {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .industry-subcategories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        
+        .subcategory-tag {
+            background: rgba(218, 165, 32, 0.1);
+            border: 1px solid rgba(218, 165, 32, 0.3);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--gold);
+            transition: all 0.3s ease;
+        }
+        
+        .subcategory-tag:hover {
+            background: rgba(218, 165, 32, 0.2);
+            transform: scale(1.05);
+        }
+        
+        /* Results Preview */
+        .results-preview {
+            padding: 100px 40px;
+            background: var(--black);
+            text-align: center;
+        }
+        
+        .metric-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 60px auto;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.05) 0%, transparent 100%);
+            border: 1px solid rgba(218, 165, 32, 0.2);
+            border-radius: 15px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: scale(1.05);
+            border-color: var(--gold);
+        }
+        
+        .metric-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .metric-label {
+            font-size: 1rem;
+            color: var(--cream);
+            margin-top: 10px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 40px;
+            background: linear-gradient(180deg, var(--gray) 0%, var(--black) 100%);
+            text-align: center;
+        }
+        
+        .cta-button-large {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--black);
+            padding: 20px 60px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 30px;
+        }
+        
+        .cta-button-large:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(218, 165, 32, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 60px 40px 40px;
+            background: var(--black);
+            border-top: 1px solid rgba(218, 165, 32, 0.1);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2.5rem;
+            }
+            
+            .industry-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .metric-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">ALEAR</a>
+            <div class="nav-links">
+                <a href="#industries">Industrias</a>
+                <a href="#results">Resultados</a>
+                <a href="#about">Nosotros</a>
+                <a href="#contact">Contacto</a>
+                <a href="https://wa.me/436765748509" class="nav-cta">Consulta Gratuita</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="animate">
+                Marketing Digital que <span class="gold-text">Entiende</span><br>
+                tu Industria
+            </h1>
+            <p class="hero-subtitle animate delay-1">
+                Estrategias personalizadas con ROI garantizado para cada sector
+            </p>
+            <a href="#industries" class="cta-button-large animate delay-2">
+                Descubre tu Potencial
+            </a>
+        </div>
+    </section>
+
+    <!-- Industry Selector -->
+    <section class="industry-selector" id="industries">
+        <div class="section-header">
+            <h2 class="animate">Selecciona tu Industria</h2>
+            <p class="section-subtitle animate delay-1">
+                Cada negocio es único. Nuestras estrategias también.
+            </p>
+        </div>
+        
+        <div class="industry-grid">
+            <!-- Restaurantes -->
+            <div class="industry-card animate delay-1" onclick="selectIndustry('restaurantes')">
+                <span class="industry-icon">🍽️</span>
+                <h3 class="industry-title">Restaurantes</h3>
+                <p class="industry-description">
+                    Llena tus mesas con clientes hambrientos de tu propuesta
+                </p>
+                <div class="industry-subcategories">
+                    <span class="subcategory-tag">Taquerías</span>
+                    <span class="subcategory-tag">Marisquerías</span>
+                    <span class="subcategory-tag">Fine Dining</span>
+                    <span class="subcategory-tag">Cafeterías</span>
+                </div>
+            </div>
+            
+            <!-- Salud -->
+            <div class="industry-card animate delay-2" onclick="selectIndustry('salud')">
+                <span class="industry-icon">🏥</span>
+                <h3 class="industry-title">Salud & Bienestar</h3>
+                <p class="industry-description">
+                    Conecta con pacientes que buscan tu especialidad
+                </p>
+                <div class="industry-subcategories">
+                    <span class="subcategory-tag">Oftalmólogos</span>
+                    <span class="subcategory-tag">Dentistas</span>
+                    <span class="subcategory-tag">Dermatólogos</span>
+                    <span class="subcategory-tag">Clínicas</span>
+                </div>
+            </div>
+            
+            <!-- Belleza -->
+            <div class="industry-card animate delay-3" onclick="selectIndustry('belleza')">
+                <span class="industry-icon">✨</span>
+                <h3 class="industry-title">Belleza & Estética</h3>
+                <p class="industry-description">
+                    Atrae clientes que valoran verse y sentirse bien
+                </p>
+                <div class="industry-subcategories">
+                    <span class="subcategory-tag">Depilación Láser</span>
+                    <span class="subcategory-tag">Spas</span>
+                    <span class="subcategory-tag">Salones</span>
+                    <span class="subcategory-tag">Masajes</span>
+                </div>
+            </div>
+            
+            <!-- Profesionales -->
+            <div class="industry-card animate delay-4" onclick="selectIndustry('profesionales')">
+                <span class="industry-icon">💼</span>
+                <h3 class="industry-title">Servicios Profesionales</h3>
+                <p class="industry-description">
+                    Posiciónate como el experto de referencia
+                </p>
+                <div class="industry-subcategories">
+                    <span class="subcategory-tag">Consultorías</span>
+                    <span class="subcategory-tag">Arquitectos</span>
+                    <span class="subcategory-tag">Abogados</span>
+                    <span class="subcategory-tag">Contadores</span>
+                </div>
+            </div>
+            
+            <!-- Educación -->
+            <div class="industry-card animate delay-5" onclick="selectIndustry('educacion')">
+                <span class="industry-icon">🎓</span>
+                <h3 class="industry-title">Educación</h3>
+                <p class="industry-description">
+                    Llena tus aulas con estudiantes motivados
+                </p>
+                <div class="industry-subcategories">
+                    <span class="subcategory-tag">Escuelas</span>
+                    <span class="subcategory-tag">Universidades</span>
+                    <span class="subcategory-tag">Cursos Online</span>
+                    <span class="subcategory-tag">Idiomas</span>
+                </div>
+            </div>
+            
+            <!-- Hotelería -->
+            <div class="industry-card animate delay-6" onclick="selectIndustry('hoteleria')">
+                <span class="industry-icon">🏨</span>
+                <h3 class="industry-title">Hotelería & Turismo</h3>
+                <p class="industry-description">
+                    Maximiza tu ocupación con huéspedes ideales
+                </p>
+                <div class="industry-subcategories">
+                    <span class="subcategory-tag">Hoteles</span>
+                    <span class="subcategory-tag">Boutique Hotels</span>
+                    <span class="subcategory-tag">Airbnb</span>
+                    <span class="subcategory-tag">Tours</span>
+                </div>
+            </div>
+            
+            <!-- Retail -->
+            <div class="industry-card animate delay-1" onclick="selectIndustry('retail')">
+                <span class="industry-icon">🛍️</span>
+                <h3 class="industry-title">Retail & E-commerce</h3>
+                <p class="industry-description">
+                    Convierte visitantes en compradores recurrentes
+                </p>
+                <div class="industry-subcategories">
+                    <span class="subcategory-tag">Tiendas</span>
+                    <span class="subcategory-tag">Boutiques</span>
+                    <span class="subcategory-tag">Online</span>
+                    <span class="subcategory-tag">Marcas</span>
+                </div>
+            </div>
+            
+            <!-- Fitness -->
+            <div class="industry-card animate delay-2" onclick="selectIndustry('fitness')">
+                <span class="industry-icon">💪</span>
+                <h3 class="industry-title">Fitness & Deportes</h3>
+                <p class="industry-description">
+                    Construye una comunidad de miembros comprometidos
+                </p>
+                <div class="industry-subcategories">
+                    <span class="subcategory-tag">Gimnasios</span>
+                    <span class="subcategory-tag">CrossFit</span>
+                    <span class="subcategory-tag">Yoga</span>
+                    <span class="subcategory-tag">Nutrición</span>
+                </div>
+            </div>
+            
+            <!-- Automotriz -->
+            <div class="industry-card animate delay-3" onclick="selectIndustry('automotriz')">
+                <span class="industry-icon">🚗</span>
+                <h3 class="industry-title">Automotriz</h3>
+                <p class="industry-description">
+                    Acelera tus ventas y servicios
+                </p>
+                <div class="industry-subcategories">
+                    <span class="subcategory-tag">Agencias</span>
+                    <span class="subcategory-tag">Talleres</span>
+                    <span class="subcategory-tag">Refacciones</span>
+                    <span class="subcategory-tag">Car Wash</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Preview -->
+    <section class="results-preview" id="results">
+        <div class="section-header">
+            <h2 class="animate">Resultados que Hablan</h2>
+            <p class="section-subtitle animate delay-1">
+                Números reales de clientes reales
+            </p>
+        </div>
+        
+        <div class="metric-cards">
+            <div class="metric-card animate delay-1">
+                <div class="metric-value">3-5X</div>
+                <div class="metric-label">ROI Promedio</div>
+            </div>
+            <div class="metric-card animate delay-2">
+                <div class="metric-value">48h</div>
+                <div class="metric-label">Primeros Resultados</div>
+            </div>
+            <div class="metric-card animate delay-3">
+                <div class="metric-value">87%</div>
+                <div class="metric-label">Retención de Clientes</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="section-header">
+            <h2 class="animate">¿Listo para Multiplicar tus Ventas?</h2>
+            <p class="section-subtitle animate delay-1">
+                Descubre el potencial exacto de tu negocio con nuestra herramienta gratuita
+            </p>
+            <a href="/calculator/" class="cta-button-large animate delay-2">
+                Calcular Mi ROI
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/about">Nosotros</a>
+                <a href="/cases">Casos de Éxito</a>
+                <a href="/calculator">ROI Calculator</a>
+                <a href="/contact">Contacto</a>
+            </div>
+            <p style="color: var(--text-muted); margin-top: 20px;">
+                © 2024 Alear. Marketing Digital Especializado.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Industry selection
+        function selectIndustry(industry) {
+            // Aquí puedes redirigir a una página específica o mostrar un modal
+            console.log('Industria seleccionada:', industry);
+            
+            // Por ahora, redirige al calculator con parámetro
+            window.location.href = `/calculator/?industry=${industry}`;
+        }
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
