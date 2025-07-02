@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contratos Alear</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #DAA520;
+      --gold-dark: #B8860B;
+      --cream: #F5DEB3;
+      --black: #000000;
+      --gray: #1A1A1A;
+      --text: #E5E5E5;
+      --muted: #999999;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: var(--black);
+      color: var(--text);
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 30px 60px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      color: var(--muted);
+      font-style: italic;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 30px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid rgba(218, 165, 32, 0.2);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(218, 165, 32, 0.2);
+    }
+
+    .card h2 {
+      color: var(--cream);
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      min-height: 60px;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 20px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--black);
+      padding: 12px 30px;
+      font-weight: 600;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .card a:hover {
+      box-shadow: 0 8px 30px rgba(218, 165, 32, 0.3);
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Contratos Alear</h1>
+    <p>Selecciona el paquete ideal para ti. Cada uno está diseñado para generar resultados reales, rápido y con garantía.</p>
+  </header>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Paquete Completo</h2>
+      <p>Todos los servicios de Alear en una sola propuesta poderosa para lanzar o escalar tu negocio.</p>
+      <a href="/contratos/completo.html">Firmar</a>
+    </div>
+    <div class="card">
+      <h2>Google Ads Premium</h2>
+      <p>Atrae clientes todos los días con campañas inteligentes y optimización con IA.</p>
+      <a href="/contratos/google-ads.html">Firmar</a>
+    </div>
+    <div class="card">
+      <h2>WhatsApp Business Pro</h2>
+      <p>Vende en automático 24/7. Catálogo interactivo + bot inteligente + pagos integrados.</p>
+      <a href="/contratos/whatsapp.html">Firmar</a>
+    </div>
+    <div class="card">
+      <h2>Identidad de Marca</h2>
+      <p>Logo premium, branding, manual visual completo y diseño estratégico profesional.</p>
+      <a href="/contratos/branding.html">Firmar</a>
+    </div>
+    <div class="card">
+      <h2>Página Web + SEO</h2>
+      <p>Una web rápida, moderna y optimizada para Google. 100% responsiva y profesional.</p>
+      <a href="/contratos/web.html">Firmar</a>
+    </div>
+    <div class="card">
+      <h2>Fotografía y Video</h2>
+      <p>Producción de contenido visual irresistible. Fotos, video, reels y edición pro.</p>
+      <a href="/contratos/fotografia.html">Firmar</a>
+    </div>
+    <div class="card">
+      <h2>Social Media Pro</h2>
+      <p>Gestión completa de redes, contenido, comunidad y crecimiento real con estrategia.</p>
+      <a href="/contratos/social.html">Firmar</a>
+    </div>
+  </div>
+
+  <footer>
+    © 2024 Alear. Marketing Digital Premium.
+  </footer>
+</body>
+</html>
