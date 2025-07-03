@@ -231,7 +231,7 @@
       margin: 28px 0 0 0;
       gap: 10px;
     }
-    .checkbox-wrapper input[type=\"checkbox\"] {
+    .checkbox-wrapper input[type="checkbox"] {
       width: 20px; height: 20px; cursor: pointer;
     }
     .submit-section {
@@ -399,20 +399,15 @@
         Su firma digital queda registrada con fecha, hora y dirección IP para máxima seguridad jurídica.
       </div>
       <div class="signature-section">
-        <h3 style="text-align: center; color: #FFD700; margin-bottom: 10px;">FIRMAS</h3>
+        <h3 style="text-align: center; color: #FFD700; margin-bottom: 10px;">FIRMA DIGITAL</h3>
         <p style="text-align: center; color: #aaa; margin-bottom: 30px;">
-          Al firmar digitalmente, ambas partes aceptan los términos y condiciones establecidos
+          Al firmar digitalmente, el cliente acepta todos los términos y condiciones establecidos.
         </p>
-        <div class="signature-grid">
+        <div class="signature-grid" style="justify-content:center;">
           <div class="signature-box">
             <div class="signature-label">FIRMA DEL CLIENTE</div>
             <canvas id="client-signature" class="signature-pad"></canvas>
             <button class="clear-btn" onclick="clearSignature('client-signature')">Limpiar Firma</button>
-          </div>
-          <div class="signature-box">
-            <div class="signature-label">FIRMA ALEAR</div>
-            <canvas id="alear-signature" class="signature-pad"></canvas>
-            <div style="margin-top: 10px; color: #FFD700;">Diego Cárdenas - Director General</div>
           </div>
         </div>
       </div>
@@ -439,7 +434,7 @@
       month: 'long',
       day: 'numeric'
     });
-    // Signature pads
+    // Signature pad para cliente
     function initSignaturePad(canvasId) {
       const canvas = document.getElementById(canvasId);
       const ctx = canvas.getContext('2d');
@@ -481,15 +476,6 @@
       }
     }
     initSignaturePad('client-signature');
-    initSignaturePad('alear-signature');
-    // Pre-sign signature
-    setTimeout(() => {
-      const canvas = document.getElementById('alear-signature');
-      const ctx = canvas.getContext('2d');
-      ctx.font = '30px cursive';
-      ctx.fillStyle = '#DAA520';
-      ctx.fillText('Diego Cárdenas', 20, 80);
-    }, 500);
     function clearSignature(canvasId) {
       const canvas = document.getElementById(canvasId);
       const ctx = canvas.getContext('2d');
