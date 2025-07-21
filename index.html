@@ -873,6 +873,14 @@
         document.querySelectorAll('.animate').forEach(el => {
             observer.observe(el);
         });
+    
+   
+    // Redirect all industry cards to the contratos page
+    document.querySelectorAll('.industry-card').forEach(card => {
+        card.onclick = () => {
+            window.location.href = '/contratos/index.html';
+        };
+    });
     </script>
 </body>
 </html>
