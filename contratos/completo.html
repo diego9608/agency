@@ -293,10 +293,11 @@
         </div>
         <div>
           <div class="party-title">CLIENTE</div>
-          <strong>TACOS DOMINGO AL CARBÓN</strong><br>
+          <strong><input type="text" id="company-name" placeholder="Nombre de la empresa" style="width: 100%; padding: 5px; margin: 5px 0; font-weight: bold;"></strong><br>
           Representante: <input type="text" id="rep-name" placeholder="Nombre completo" style="width: 100%; padding: 5px; margin: 5px 0;"><br>
           RFC: <input type="text" id="rfc" placeholder="RFC" style="width: 100%; padding: 5px; margin: 5px 0;"><br>
-          Tel: <input type="tel" id="phone" placeholder="Teléfono" style="width: 100%; padding: 5px; margin: 5px 0;">
+          Tel: <input type="tel" id="phone" placeholder="Teléfono" style="width: 100%; padding: 5px; margin: 5px 0;"><br>
+          Email: <input type="email" id="email" placeholder="Email" style="width: 100%; padding: 5px; margin: 5px 0;">
         </div>
       </div>
       <section class="section">
@@ -487,25 +488,31 @@
       element.classList.add('selected');
     }
     function checkFormValidity() {
+      const companyName = document.getElementById('company-name').value;
       const repName = document.getElementById('rep-name').value;
       const rfc = document.getElementById('rfc').value;
       const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
       const termsAccepted = document.getElementById('accept-terms').checked;
       const clientCanvas = document.getElementById('client-signature');
       const ctx = clientCanvas.getContext('2d');
       const hasSignature = ctx.getImageData(0, 0, clientCanvas.width, clientCanvas.height).data.some(channel => channel !== 0);
-      const isValid = repName && rfc && phone && termsAccepted && hasSignature;
+      const isValid = companyName && repName && rfc && phone && email && termsAccepted && hasSignature;
       document.getElementById('submit-btn').disabled = !isValid;
     }
+    document.getElementById('company-name').addEventListener('input', checkFormValidity);
     document.getElementById('rep-name').addEventListener('input', checkFormValidity);
     document.getElementById('rfc').addEventListener('input', checkFormValidity);
     document.getElementById('phone').addEventListener('input', checkFormValidity);
+    document.getElementById('email').addEventListener('input', checkFormValidity);
     document.getElementById('accept-terms').addEventListener('change', checkFormValidity);
     function submitContract() {
       const contractData = {
+        companyName: document.getElementById('company-name').value,
         clientName: document.getElementById('rep-name').value,
         rfc: document.getElementById('rfc').value,
         phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
         date: new Date().toISOString(),
         ip: 'Cliente IP registrada',
         signature: document.getElementById('client-signature').toDataURL(),
